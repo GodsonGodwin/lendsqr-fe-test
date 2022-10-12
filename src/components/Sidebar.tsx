@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
@@ -152,7 +152,6 @@ const SideBarWrapper = styled(Box)`
   width: 283px;
   min-height: 100vh;
   background: #ffffff;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
 `;
 
 const SideBarContent = styled(Box)``;

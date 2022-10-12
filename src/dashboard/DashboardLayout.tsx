@@ -6,12 +6,11 @@ import SideBar from "components/Sidebar";
 
 const DashboardLayout = () => {
 
-  const [showSideBar, setShowSideBar] = useState(false);
+ const [showSideBar, setShowSideBar] = useState(false);
 
-  const handleClick = () => {
+ const handleClick = () => {
     setShowSideBar((prev) => !prev);
   };
-
   
   return (
     <React.Fragment>
@@ -23,6 +22,7 @@ const DashboardLayout = () => {
           position={{ xs: "absolute", lg: "relative" }}
           zIndex={{ xs: "100", lg: "-1" }}
           display={{ xs: `${showSideBar ? "none" : "block"}`, lg: "block" }}
+          boxShadow={"0px 5px 20px rgba(0, 0, 0, 0.04)"}
         >
           <SideBar />
         </Grid>
