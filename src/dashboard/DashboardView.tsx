@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { styled } from "@mui/material/styles";
-import { Grid, TableContainer,  Avatar, Box, CardContent, Card } from "@mui/material";
+import {
+  Grid,
+  TableContainer,
+  Avatar,
+  Box,
+  CardContent,
+  Card,
+} from "@mui/material";
 import UserTable from "users/UserTable";
 import { parseISO } from "date-fns";
 import format from "date-fns/format";
 import { IUser, Status } from "users/types";
-import { stat } from "fs";
 
 const TableWrapper = styled(TableContainer)`
   margin-top: 40px;
@@ -52,16 +58,15 @@ const Dashboard = () => {
         method: "GET",
       }
     );
-    const data = ((await response.json()) as IUser[]).map((user)=>{
-
-        const currentDate = new Date().getTime();
-        const lastActiveDate = new Date(user.lastActiveDate).getTime();
-        const status: Status = (currentDate - lastActiveDate) > TWELVE_MONTHS ? "inactive" : "active";
-        return {
-            ...user,
-            status
-        }
-
+    const data = ((await response.json()) as IUser[]).map((user) => {
+      const currentDate = new Date().getTime();
+      const lastActiveDate = new Date(user.lastActiveDate).getTime();
+      const status: Status =
+        currentDate - lastActiveDate > TWELVE_MONTHS ? "inactive" : "active";
+      return {
+        ...user,
+        status,
+      };
     });
 
     const result = data.map((item) => {
@@ -75,120 +80,121 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    getUserData()
-      .then((data) => {
-        setAllUserData(data);
-        localStorage.setItem("userData", JSON.stringify(data));
-      })
+    getUserData().then((data) => {
+      setAllUserData(data);
+      localStorage.setItem("userData", JSON.stringify(data));
+    });
   }, []);
 
-
-  const stats = useMemo(()=>{
-    const activeUsersCount = allUserData.filter((user)=>{
-        const currentDate = new Date().getTime();
-        const lastActiveDate = new Date(user.lastActiveDate).getTime();
-        return (currentDate - lastActiveDate) < TWELVE_MONTHS; 
+  const stats = useMemo(() => {
+    const activeUsersCount = allUserData.filter((user) => {
+      const currentDate = new Date().getTime();
+      const lastActiveDate = new Date(user.lastActiveDate).getTime();
+      return currentDate - lastActiveDate < TWELVE_MONTHS;
     }).length;
-    const usersWithLoan = allUserData.filter((user)=> Number(user.education.loanRepayment) > 0).length;
-    const usersWithSaving = allUserData.filter((user)=> Number(user.accountBalance) > 0).length;
+    const usersWithLoan = allUserData.filter(
+      (user) => Number(user.education.loanRepayment) > 0
+    ).length;
+    const usersWithSaving = allUserData.filter(
+      (user) => Number(user.accountBalance) > 0
+    ).length;
     return {
-        usersWithLoan,
-        activeUsersCount,
-        usersWithSaving
-    }
-  },[allUserData]);
-
+      usersWithLoan,
+      activeUsersCount,
+      usersWithSaving,
+    };
+  }, [allUserData]);
 
   return (
     <React.Fragment>
       <Grid container width="100%">
-      <Grid
-        item
-        xs={6}
-        sm={4}
-        md={3}
-        paddingTop={{ xs: "15px", md: "0" }}
-        paddingLeft={1 / 2}
-        paddingRight={1 / 2}
-      >
-        <CardWrapper>
-          <CardContent>
-            <Avatar
-              sx={{ marginBottom: "14px" }}
-              alt="Profile"
-              src="/assets/user.svg"
-            />
-            <p>USERS</p>
-            <h5>{allUserData.length}</h5>
-          </CardContent>
-        </CardWrapper>
-      </Grid>
+        <Grid
+          item
+          xs={6}
+          sm={4}
+          md={3}
+          paddingTop={{ xs: "15px", md: "0" }}
+          paddingLeft={1 / 2}
+          paddingRight={1 / 2}
+        >
+          <CardWrapper>
+            <CardContent>
+              <Avatar
+                sx={{ marginBottom: "14px" }}
+                alt="Profile"
+                src="/assets/user.svg"
+              />
+              <p>USERS</p>
+              <h5>{allUserData.length}</h5>
+            </CardContent>
+          </CardWrapper>
+        </Grid>
 
-      <Grid
-        item
-        xs={6}
-        sm={4}
-        md={3}
-        paddingTop={{ xs: "15px", md: "0" }}
-        paddingLeft={1 / 2}
-        paddingRight={1 / 2}
-      >
-        <CardWrapper>
-          <CardContent>
-            <Avatar
-              sx={{ marginBottom: "14px" }}
-              alt="Profile"
-              src="/assets/user-active.svg"
-            />
-            <p>ACTIVE USERS</p>
-            <h5>{stats.activeUsersCount}</h5>
-          </CardContent>
-        </CardWrapper>
-      </Grid>
+        <Grid
+          item
+          xs={6}
+          sm={4}
+          md={3}
+          paddingTop={{ xs: "15px", md: "0" }}
+          paddingLeft={1 / 2}
+          paddingRight={1 / 2}
+        >
+          <CardWrapper>
+            <CardContent>
+              <Avatar
+                sx={{ marginBottom: "14px" }}
+                alt="Profile"
+                src="/assets/user-active.svg"
+              />
+              <p>ACTIVE USERS</p>
+              <h5>{stats.activeUsersCount}</h5>
+            </CardContent>
+          </CardWrapper>
+        </Grid>
 
-      <Grid
-        item
-        xs={6}
-        sm={4}
-        md={3}
-        paddingTop={{ xs: "15px", md: "0" }}
-        paddingLeft={1 / 2}
-        paddingRight={1 / 2}
-      >
-        <CardWrapper>
-          <CardContent>
-            <Avatar
-              sx={{ marginBottom: "14px" }}
-              alt="Profile"
-              src="/assets/user-loan.svg"
-            />
-            <p>USER WITH LOAN</p>
-            <h5>{stats.usersWithLoan}</h5>
-          </CardContent>
-        </CardWrapper>
-      </Grid>
+        <Grid
+          item
+          xs={6}
+          sm={4}
+          md={3}
+          paddingTop={{ xs: "15px", md: "0" }}
+          paddingLeft={1 / 2}
+          paddingRight={1 / 2}
+        >
+          <CardWrapper>
+            <CardContent>
+              <Avatar
+                sx={{ marginBottom: "14px" }}
+                alt="Profile"
+                src="/assets/user-loan.svg"
+              />
+              <p>USER WITH LOAN</p>
+              <h5>{stats.usersWithLoan}</h5>
+            </CardContent>
+          </CardWrapper>
+        </Grid>
 
-      <Grid
-        item
-        xs={6}
-        sm={4}
-        md={3}
-        paddingTop={{ xs: "15px", md: "0" }}
-        paddingLeft={1 / 2}
-        paddingRight={1 / 2}
-      >
-        <CardWrapper>
-          <CardContent>
-            <Avatar
-              sx={{ marginBottom: "14px" }}
-              alt="Profile"
-              src="/assets/user-saving.svg"
-            />
-            <p>USERS WITH SAVING </p>
-            <h5>{stats.usersWithSaving}</h5>
-          </CardContent>
-        </CardWrapper>
-      </Grid>
+        <Grid
+          item
+          xs={6}
+          sm={4}
+          md={3}
+          paddingTop={{ xs: "15px", md: "0" }}
+          paddingLeft={1 / 2}
+          paddingRight={1 / 2}
+        >
+          <CardWrapper>
+            <CardContent>
+              <Avatar
+                sx={{ marginBottom: "14px" }}
+                alt="Profile"
+                src="/assets/user-saving.svg"
+              />
+              <p>USERS WITH SAVING </p>
+              <h5>{stats.usersWithSaving}</h5>
+            </CardContent>
+          </CardWrapper>
+        </Grid>
       </Grid>
 
       <Box>
