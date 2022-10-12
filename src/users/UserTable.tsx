@@ -152,12 +152,9 @@ export default function UserTable( { users} :IUserTableProps ) {
   }
 
   const navigate = useNavigate();
-  const getUserId = (userId: string) => {
-    navigate(`/dashboard/user-details`, {
-      state: {
-        userId: userId,
-      },
-    });
+  
+  const navigateToDetailsPage = (userId: string) => {
+    navigate(`/dashboard/user-details/${userId}`);
   };
 
   return (
@@ -220,7 +217,7 @@ export default function UserTable( { users} :IUserTableProps ) {
               <TableCell
                 sx={{ cursor: "pointer" }}
                 align="left"
-                onClick={() => getUserId(row.id)}
+                onClick={() => navigateToDetailsPage(row.id)}
               >
                 {row.userName}
               </TableCell>
