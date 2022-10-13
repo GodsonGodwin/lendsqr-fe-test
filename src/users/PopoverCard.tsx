@@ -11,7 +11,7 @@ const CardWrapper = styled(Card)`
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
 
-  img{
+  img {
     width: auto;
     margin-right: 10px;
   }
@@ -30,10 +30,9 @@ const CardWrapper = styled(Card)`
   }
 `;
 
-const PopoverCard = ({ userId }: { userId: string}) => {
-
+const PopoverCard = ({ userId }: { userId: string }) => {
   const navigate = useNavigate();
-  
+
   const navigateToDetailsPage = (userId: string) => {
     navigate(`/dashboard/users/details/${userId}`);
   };
@@ -41,18 +40,17 @@ const PopoverCard = ({ userId }: { userId: string}) => {
     <CardWrapper>
       <CardContent>
         <Box
-         onClick={() => navigateToDetailsPage(userId)}
+          onClick={() => navigateToDetailsPage(userId)}
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
           <img src="/assets/redeye.svg" alt="icon" height="16px" width="16px" />
-          
           <a> View Details</a>
         </Box>
 
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
-             <img
+          <img
             src="/assets/user-times.svg"
             alt="icon"
             height="16px"
@@ -64,7 +62,7 @@ const PopoverCard = ({ userId }: { userId: string}) => {
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
-           <img
+          <img
             src="/assets/user-check.svg"
             alt="icon"
             height="16px"
