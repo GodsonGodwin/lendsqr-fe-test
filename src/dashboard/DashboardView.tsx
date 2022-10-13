@@ -7,6 +7,7 @@ import {
   Box,
   CardContent,
   Card,
+  CircularProgress,
 } from "@mui/material";
 import UserTable from "users/UserTable";
 import { parseISO } from "date-fns";
@@ -47,9 +48,9 @@ const CardWrapper = styled(Card)`
 `;
 
 const TWELVE_MONTHS = 12 * 30 * 86400 * 1000;
-
 const Dashboard = () => {
   const [allUserData, setAllUserData] = useState<IUser[]>([]);
+  const [loadingData, setLoadingData] = useState(true);
 
   const getUserData = async () => {
     const response = await fetch(
@@ -81,6 +82,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     getUserData().then((data) => {
+      setLoadingData(false);
       setAllUserData(data);
       localStorage.setItem("userData", JSON.stringify(data));
     });
@@ -107,101 +109,115 @@ const Dashboard = () => {
 
   return (
     <React.Fragment>
-      <Grid container width="100%">
-        <Grid
-          item
-          xs={6}
-          sm={4}
-          md={3}
-          paddingTop={{ xs: "15px", md: "0" }}
-          paddingLeft={1 / 2}
-          paddingRight={1 / 2}
+      {loadingData ? (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            margin: "100px auto",
+          }}
         >
-          <CardWrapper>
-            <CardContent>
-              <Avatar
-                sx={{ marginBottom: "14px" }}
-                alt="Profile"
-                src="/assets/user.svg"
-              />
-              <p>USERS</p>
-              <h5>{allUserData.length}</h5>
-            </CardContent>
-          </CardWrapper>
-        </Grid>
+          <CircularProgress size={100} thickness={2} />
+        </Box>
+      ) : (
+        <>
+          <Grid container width="100%">
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              md={3}
+              paddingTop={{ xs: "15px", md: "0" }}
+              paddingLeft={1 / 2}
+              paddingRight={1 / 2}
+            >
+              <CardWrapper>
+                <CardContent>
+                  <Avatar
+                    sx={{ marginBottom: "14px" }}
+                    alt="Profile"
+                    src="/assets/user.svg"
+                  />
+                  <p>USERS</p>
+                  <h5>{allUserData.length}</h5>
+                </CardContent>
+              </CardWrapper>
+            </Grid>
 
-        <Grid
-          item
-          xs={6}
-          sm={4}
-          md={3}
-          paddingTop={{ xs: "15px", md: "0" }}
-          paddingLeft={1 / 2}
-          paddingRight={1 / 2}
-        >
-          <CardWrapper>
-            <CardContent>
-              <Avatar
-                sx={{ marginBottom: "14px" }}
-                alt="Profile"
-                src="/assets/user-active.svg"
-              />
-              <p>ACTIVE USERS</p>
-              <h5>{stats.activeUsersCount}</h5>
-            </CardContent>
-          </CardWrapper>
-        </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              md={3}
+              paddingTop={{ xs: "15px", md: "0" }}
+              paddingLeft={1 / 2}
+              paddingRight={1 / 2}
+            >
+              <CardWrapper>
+                <CardContent>
+                  <Avatar
+                    sx={{ marginBottom: "14px" }}
+                    alt="Profile"
+                    src="/assets/user-active.svg"
+                  />
+                  <p>ACTIVE USERS</p>
+                  <h5>{stats.activeUsersCount}</h5>
+                </CardContent>
+              </CardWrapper>
+            </Grid>
 
-        <Grid
-          item
-          xs={6}
-          sm={4}
-          md={3}
-          paddingTop={{ xs: "15px", md: "0" }}
-          paddingLeft={1 / 2}
-          paddingRight={1 / 2}
-        >
-          <CardWrapper>
-            <CardContent>
-              <Avatar
-                sx={{ marginBottom: "14px" }}
-                alt="Profile"
-                src="/assets/user-loan.svg"
-              />
-              <p>USER WITH LOAN</p>
-              <h5>{stats.usersWithLoan}</h5>
-            </CardContent>
-          </CardWrapper>
-        </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              md={3}
+              paddingTop={{ xs: "15px", md: "0" }}
+              paddingLeft={1 / 2}
+              paddingRight={1 / 2}
+            >
+              <CardWrapper>
+                <CardContent>
+                  <Avatar
+                    sx={{ marginBottom: "14px" }}
+                    alt="Profile"
+                    src="/assets/user-loan.svg"
+                  />
+                  <p>USER WITH LOAN</p>
+                  <h5>{stats.usersWithLoan}</h5>
+                </CardContent>
+              </CardWrapper>
+            </Grid>
 
-        <Grid
-          item
-          xs={6}
-          sm={4}
-          md={3}
-          paddingTop={{ xs: "15px", md: "0" }}
-          paddingLeft={1 / 2}
-          paddingRight={1 / 2}
-        >
-          <CardWrapper>
-            <CardContent>
-              <Avatar
-                sx={{ marginBottom: "14px" }}
-                alt="Profile"
-                src="/assets/user-saving.svg"
-              />
-              <p>USERS WITH SAVING </p>
-              <h5>{stats.usersWithSaving}</h5>
-            </CardContent>
-          </CardWrapper>
-        </Grid>
-      </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              md={3}
+              paddingTop={{ xs: "15px", md: "0" }}
+              paddingLeft={1 / 2}
+              paddingRight={1 / 2}
+            >
+              <CardWrapper>
+                <CardContent>
+                  <Avatar
+                    sx={{ marginBottom: "14px" }}
+                    alt="Profile"
+                    src="/assets/user-saving.svg"
+                  />
+                  <p>USERS WITH SAVING </p>
+                  <h5>{stats.usersWithSaving}</h5>
+                </CardContent>
+              </CardWrapper>
+            </Grid>
+          </Grid>
 
-      <Box>
-        <TableWrapper>
-          <UserTable users={allUserData} />
-        </TableWrapper>
-      </Box>
+          <Box>
+            <TableWrapper>
+              <UserTable users={allUserData} />
+            </TableWrapper>
+          </Box>
+        </>
+      )}
     </React.Fragment>
   );
 };

@@ -64,13 +64,13 @@ const UserNavigation = () => {
 
         <Box
           display={{ xs: "flex", md: "block" }}
-          marginTop={{ xs: "15px", md: "0" }}
+          margin={{ xs: "15px 15px", md: "0" }}
         >
           <Button
             sx={{
               color: "#E4033B",
               border: "1px solid #E4033B",
-              marginRight: "20px",
+              marginRight: "15px",
             }}
             variant="outlined"
           >

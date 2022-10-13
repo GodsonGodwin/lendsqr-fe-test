@@ -54,15 +54,18 @@ const Form = styled("form")`
 `;
 
 interface IFilterBox {
-    data: {orgName: string}[];
-    onFiltered : (filter:Record<string, string | number>) => void;
-    onClearFilter: Function;
+  data: { orgName: string }[];
+  onFiltered: (filter: Record<string, string | number>) => void;
+  onClearFilter: Function;
 }
 
 const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
-  const [selectFilter, setSelectFilter] = useState<Record<string, string | number>>();
+  const [selectFilter, setSelectFilter] =
+    useState<Record<string, string | number>>();
 
-  const onInputChanged = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const onInputChanged = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { value, name } = e.target;
     setSelectFilter({ ...selectFilter, [name]: value });
   };
@@ -77,7 +80,11 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
       <Form onSubmit={onSubmitForm}>
         <Box className="input-box">
           <label>Organization</label>
-          <select onChange={onInputChanged} name="orgName" data-testid="filter-input-organization">
+          <select
+            onChange={onInputChanged}
+            name="orgName"
+            data-testid="filter-input-organization"
+          >
             <option value="">Organization</option>
             {data.map((item) => {
               return <option key={item.orgName}>{item.orgName}</option>;
@@ -99,7 +106,7 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
         <Box className="input-box">
           <label>Email</label>
           <input
-          data-testid="filter-input-email"
+            data-testid="filter-input-email"
             name="email"
             onChange={onInputChanged}
             placeholder="Email"
@@ -110,7 +117,7 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
         <Box className="input-box">
           <label>Date</label>
           <input
-          data-testid="filter-input-createdAt"
+            data-testid="filter-input-createdAt"
             name="createdAt"
             onChange={onInputChanged}
             placeholder="Date"
@@ -122,7 +129,11 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
 
         <Box className="input-box">
           <label>Status</label>
-          <select name="status" onChange={onInputChanged} data-testid="filter-input-status">
+          <select
+            name="status"
+            onChange={onInputChanged}
+            data-testid="filter-input-status"
+          >
             <option value="">-</option>
             <option>Active</option>
             <option>Inactive</option>
@@ -135,7 +146,7 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
           <Button
             type="reset"
             variant="outlined"
-            onClick={()=>onClearFilter()}
+            onClick={() => onClearFilter()}
             sx={{ borderRadius: "1px solid #545F7D" }}
           >
             Reset
