@@ -5,149 +5,153 @@ import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import HomeIcon from "@mui/icons-material/Home";
 import LogoutIcon from "@mui/icons-material/Logout";
-import {
-    Analytics,
-    BusinessCenter,
-    CleanHands,
-    Euro,
-    Groups,
-    Handshake,
-    HouseSiding,
-    HowToReg,
-    Layers,
-    LibraryBooks,
-    ManageAccounts,
-    PeopleAlt,
-    RateReview,
-    Receipt,
-    ReceiptLong,
-    Savings,
-    SupportAgent,
-    Tune,
-  } from "@mui/icons-material";
-  
-  
-  export const Custumers = [
-    {
-      icon: PeopleAlt,
-      iconName: "Users",
-    },
-  
-    {
-      icon: Groups,
-      iconName: "Gaurantors",
-    },
-  
-    {
-      icon: Euro,
-      iconName: "Loans",
-    },
-  
-    {
-      icon: Handshake,
-      iconName: "Decision Models",
-    },
-  
-    {
-      icon: Savings,
-      iconName: "Savings",
-    },
-  
-    {
-      icon: CleanHands,
-      iconName: "Loan Request",
-    },
-  
-    {
-      icon: HowToReg,
-      iconName: "Whitelist",
-    },
-  ];
-  
-  export const Businesses = [
-    {
-      id: 1,
-      icon: BusinessCenter,
-      iconName: "Organisation",
-    },
-  
-    {
-      id: 2,
-  
-      icon: CleanHands,
-      iconName: "Loan Product",
-    },
-  
-    {
-      id: 3,
-      icon: HouseSiding,
-      iconName: "Savings Product",
-    },
-  
-    {
-      icon: Handshake,
-      iconName: "Decision Models",
-    },
-  
-    {
-      icon: Layers,
-      iconName: "Fees and Charges",
-    },
-  
-    {
-      icon: Receipt,
-      iconName: "Transaction",
-    },
-  
-    {
-      icon: SupportAgent,
-      iconName: "Services",
-    },
-  
-    {
-      icon: ManageAccounts,
-      iconName: "Service Account",
-    },
-  
-    {
-      icon: ReceiptLong,
-      iconName: "Settlement",
-    },
-  
-    {
-      icon: Analytics,
-      iconName: "Reports",
-    },
-  ];
-  
-  export const Settings = [
-    {
-      icon: BusinessCenter,
-      iconName: "Preferences",
-    },
-  
-    {
-      icon: Tune,
-      iconName: "Loan Product",
-    },
-  
-    {
-      icon: HouseSiding,
-      iconName: "Fees and Pricing",
-    },
-  
-    {
-      icon: LibraryBooks,
-      iconName: "Audit Logs",
-    },
-  
-    {
-      icon: RateReview,
-      iconName: "System Message",
-    },
-  ];
 
-  
+import Badge from "../Icons/badge.svg";
+import Chart from "../Icons/chart.svg";
+import Coins from "../Icons/coins.svg";
+import Handshake from "../Icons/handshake.svg";
+import Galaxy from "../Icons/galaxy.svg";
+import Product from "../Icons/product.svg";
+import Sack from "../Icons/sack.svg";
+import Saving from "../Icons/saving.svg";
+import Scroll from "../Icons/scroll.svg";
+import Tire from "../Icons/tire.svg";
+import Transaction from "../Icons/trans.svg";
+import UserFriends from "../Icons/user-friends.svg";
+import Users from "../Icons/users.svg";
+import Brief from "../Icons/brief.svg";
+import Clipboard from "../Icons/clipboard.svg";
+import Slider from "../Icons/sliders.svg";
+import UserAcct from "../Icons/user-cog.svg";
+import UserCheck from "../Icons/user-check.svg";
+import Hand from "../Icons/hand.svg";
+import UserTimes from "../Icons/user-times.svg";
+
+const Custumers = [
+  {
+    icon: UserFriends,
+    iconName: "Users",
+  },
+
+  {
+    icon: Users,
+    iconName: "Gaurantors",
+  },
+
+  {
+    icon: Sack,
+    iconName: "Loans",
+  },
+
+  {
+    icon: Handshake,
+    iconName: "Decision Models",
+  },
+
+  {
+    icon: Saving,
+    iconName: "Savings",
+  },
+
+  {
+    icon: Hand,
+    iconName: "Loan Request",
+  },
+
+  {
+    icon: UserCheck,
+    iconName: "Whitelist",
+  },
+
+  {
+    icon: UserTimes,
+    iconName: "Karma",
+  },
+];
+
+const Businesses = [
+  {
+    id: 1,
+    icon: Brief,
+    iconName: "Organisation",
+  },
+
+  {
+    id: 2,
+
+    icon: Sack,
+    iconName: "Loan Product",
+  },
+
+  {
+    id: 3,
+    icon: Product,
+    iconName: "Savings Product",
+  },
+
+  {
+    icon: Handshake,
+    iconName: "Decision Models",
+  },
+
+  {
+    icon: Coins,
+    iconName: "Fees and Charges",
+  },
+
+  {
+    icon: Transaction,
+    iconName: "Transaction",
+  },
+
+  {
+    icon: Galaxy,
+    iconName: "Services",
+  },
+
+  {
+    icon: UserAcct,
+    iconName: "Service Account",
+  },
+
+  {
+    icon: Scroll,
+    iconName: "Settlement",
+  },
+
+  {
+    icon: Chart,
+    iconName: "Reports",
+  },
+];
+
+const Settings = [
+  {
+    icon: Slider,
+    iconName: "Preferences",
+  },
+
+  {
+    icon: Product,
+    iconName: "Loan Product",
+  },
+
+  {
+    icon: Badge,
+    iconName: "Fees and Pricing",
+  },
+
+  {
+    icon: Clipboard,
+    iconName: "Audit Logs",
+  },
+
+  {
+    icon: Tire,
+    iconName: "System Message",
+  },
+];
+
 const SideBarWrapper = styled(Box)`
   width: 283px;
   min-height: 100vh;
@@ -171,6 +175,11 @@ const Menu = styled("ul")`
     margin-bottom: 30px;
     padding-left: 30px;
     color: #213f7d;
+  }
+
+  img {
+    width: auto;
+    margin-right: 10px;
   }
 
   .active {
@@ -226,7 +235,13 @@ const SideBar = () => {
                   onClick={() => setActiveClass(item.iconName)}
                   href="#"
                 >
-                  <item.icon /> {item.iconName}
+                  <img
+                    src={item.icon as string}
+                    alt="icon"
+                    height="16px"
+                    width="16px"
+                  />
+                  {item.iconName}
                 </a>
               );
             })}
@@ -246,7 +261,13 @@ const SideBar = () => {
                   onClick={() => setActiveClass(item.iconName)}
                   href="#"
                 >
-                  <item.icon fontSize="small" /> {item.iconName}
+                  <img
+                    src={item.icon as string}
+                    alt="icon"
+                    height="16px"
+                    width="16px"
+                  />
+                  {item.iconName}
                 </a>
               );
             })}
@@ -266,7 +287,13 @@ const SideBar = () => {
                   onClick={() => setActiveClass(item.iconName)}
                   href="#"
                 >
-                  <item.icon fontSize="small" /> {item.iconName}
+                  <img
+                    src={item.icon as string}
+                    alt="icon"
+                    height="16px"
+                    width="16px"
+                  />
+                  {item.iconName}
                 </a>
               );
             })}

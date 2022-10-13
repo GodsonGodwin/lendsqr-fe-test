@@ -10,6 +10,11 @@ const CardWrapper = styled(Card)`
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
 
+  img{
+    width: auto;
+    margin-right: 10px;
+  }
+
   a {
     font-family: "Work Sans";
     font-style: normal;
@@ -31,21 +36,32 @@ const PopoverCard = () => {
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
-          <RemoveRedEyeOutlined />
+          <img src="/assets/redeye.svg" alt="icon" height="16px" width="16px" />
+          
           <a> View Details</a>
         </Box>
 
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
-          <RemoveRedEyeOutlined />
+             <img
+            src="/assets/user-times.svg"
+            alt="icon"
+            height="16px"
+            width="16px"
+          />
           <a> Blacklist User</a>
         </Box>
 
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
-          <RemoveRedEyeOutlined />
+           <img
+            src="/assets/user-check.svg"
+            alt="icon"
+            height="16px"
+            width="16px"
+          />
           <a> Activate Users</a>
         </Box>
       </CardContent>

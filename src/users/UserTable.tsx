@@ -74,17 +74,17 @@ interface IUserTableProps {
 }
 
 const STATUS_BG_COLORS: Record<Status, string>  = {
-    active: '#52cc74',
-    inactive:'#70747d',
-    blacklisted:'#545F7D',
-    pending:'#545F7D',
+    active: '#f3fcf6',
+    inactive:'#F5F5F7',
+    blacklisted:'#FCE6EB',
+    pending:'#FDF7E5',
 }
 
 const STATUS_TEXT_COLORS: Record<Status, string>  = {
-    active: '#fff',
-    inactive:'#fff',
-    blacklisted:'#000',
-    pending:'#000',
+    active: '#52cc74',
+    inactive:'#545F7D',
+    blacklisted:' #E4033B',
+    pending:'#E9B200',
 }
 
 const STATUS_LABEL: Record<Status, string> = {
@@ -230,6 +230,7 @@ export default function UserTable( { users} :IUserTableProps ) {
                     backgroundColor: STATUS_BG_COLORS[row.status],
                     color: STATUS_TEXT_COLORS[row.status],
                     borderRadius: "100vw",
+                    fontWeight:"700",
                     padding: "5px",
                     diplay: "flex",
                     alignItems: "center",
