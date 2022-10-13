@@ -73,11 +73,11 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
   };
 
   return (
-    <FilterWrap>
+    <FilterWrap data-testid="filter-box">
       <Form onSubmit={onSubmitForm}>
         <Box className="input-box">
           <label>Organization</label>
-          <select onChange={onInputChanged} name="orgName">
+          <select onChange={onInputChanged} name="orgName" data-testid="filter-input-organization">
             <option>Organization</option>
 
             {data.map((item) => {
@@ -89,6 +89,7 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
         <Box className="input-box">
           <label>Username</label>
           <input
+          data-testid="filter-input-userName"
             name="userName"
             onChange={onInputChanged}
             placeholder="Username"
@@ -99,6 +100,7 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
         <Box className="input-box">
           <label>Email</label>
           <input
+          data-testid="filter-input-email"
             name="email"
             onChange={onInputChanged}
             placeholder="Email"
@@ -109,6 +111,7 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
         <Box className="input-box">
           <label>Date</label>
           <input
+          data-testid="filter-input-createdAt"
             name="createdAt"
             onChange={onInputChanged}
             placeholder="Date"
@@ -118,7 +121,7 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
           />
         </Box>
 
-        <Box className="input-box">
+        <Box className="input-box" data-testid="filter-input-status">
           <label>Status</label>
           <select name="status" onChange={onInputChanged}>
             <option value="">-</option>
