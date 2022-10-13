@@ -66,7 +66,7 @@ const Menu = styled("ul")`
   }
 `;
 
-const BasicDetails = ({ userInfo }: { userInfo: IUser} ) => {
+const BasicDetails = ({ userInfo }: { userInfo: IUser }) => {
   return (
     <CardWrap>
       <CardContent>

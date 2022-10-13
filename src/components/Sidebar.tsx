@@ -5,7 +5,6 @@ import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import HomeIcon from "@mui/icons-material/Home";
 import LogoutIcon from "@mui/icons-material/Logout";
-
 import Badge from "../Icons/badge.svg";
 import Chart from "../Icons/chart.svg";
 import Coins from "../Icons/coins.svg";
@@ -228,8 +227,7 @@ const MenuList = styled("li")`
 `;
 
 const SideBar = () => {
-  const [activeClass, setActiveClass] = useState<string>();
-
+  
   return (
     <SideBarWrapper>
       <SideBarContent>

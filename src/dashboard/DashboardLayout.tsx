@@ -5,13 +5,12 @@ import NavBar from "components/Navbar";
 import SideBar from "components/Sidebar";
 
 const DashboardLayout = () => {
+  const [showSideBar, setShowSideBar] = useState(false);
 
- const [showSideBar, setShowSideBar] = useState(false);
-
- const handleClick = () => {
-    setShowSideBar((prev)=> !prev);
+  const handleClick = () => {
+    setShowSideBar((prev) => !prev);
   };
-  
+
   return (
     <React.Fragment>
       <NavBar showSideBar={showSideBar} onClickMobilebtn={handleClick} />

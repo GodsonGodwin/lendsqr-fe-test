@@ -22,6 +22,10 @@ const NavbarWrapper = styled(Box)`
 const Logo = styled(Box)`
   width: 135px;
   margin-left: 30px;
+
+  img {
+    width: 100%;
+  }
 `;
 
 const SearchBox = styled(Box)`
@@ -79,29 +83,27 @@ const Menu = styled("li")`
   }
 `;
 
-interface INavbarProps { 
-    onClickMobilebtn: Function,
-    showSideBar: boolean;
+interface INavbarProps {
+  onClickMobilebtn: Function;
+  showSideBar: boolean;
 }
 
 const NavBar = ({ onClickMobilebtn, showSideBar }: INavbarProps) => {
   return (
     <NavbarWrapper>
       <Box
-        display={{ xs: "flex", lg: "none",background:"#f5f4f4"}}
+        display={{ xs: "flex", lg: "none", background: "#f5f4f4" }}
         border="1px solid #b8b6be"
         marginLeft="15px"
         padding="3px 5px"
         alignItems="center"
         borderRadius="5px"
-        onClick={()=>onClickMobilebtn()}
+        onClick={() => onClickMobilebtn()}
       >
         {showSideBar ? (
           <CloseIcon sx={{ color: "#213F7D" }} />
-
         ) : (
           <DragHandleIcon sx={{ color: "#213F7D" }} />
-
         )}
       </Box>
 
@@ -119,7 +121,7 @@ const NavBar = ({ onClickMobilebtn, showSideBar }: INavbarProps) => {
       <MenuItem>
         <Menu className="docs">Docs</Menu>
         <Menu>
-          <NotificationsNoneIcon />
+          <NotificationsNoneIcon sx={{ display: { xs: "none", md: "flex" } }} />
         </Menu>
         <Menu>
           <Avatar alt="Profile" src="/assets/image.png" />

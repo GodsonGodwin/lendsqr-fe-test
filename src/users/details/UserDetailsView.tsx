@@ -9,7 +9,7 @@ const UserDetails = () => {
   const userId = params.userId;
   const allUsers = JSON.parse(localStorage.getItem("userData") || "[]");
 
-  const userInfo = allUsers.find((item:IUser) => {
+  const userInfo = allUsers.find((item: IUser) => {
     return item.id === userId;
   }) as IUser;
 

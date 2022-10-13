@@ -58,9 +58,6 @@ const PersonalDetails = ({ userInfo }: { userInfo: IUser }) => {
             gap={{ xs: "15px", lg: "0" }}
             display="flex"
             justifyContent="space-between"
-            
-
-            
           >
             <Grid item xs={12} lg={2}>
               <h6>FULL NAME</h6>
