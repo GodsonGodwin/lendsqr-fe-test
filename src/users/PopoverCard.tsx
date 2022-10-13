@@ -26,27 +26,27 @@ const CardWrapper = styled(Card)`
 
 const PopoverCard = () => {
   return (
-    <CardWrapper>
+    <CardWrapper data-testid="popover-card">
       <CardContent>
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
           <RemoveRedEyeOutlined />
-          <a> View Details</a>
+          <a>View Details</a>
         </Box>
 
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
           <RemoveRedEyeOutlined />
-          <a> Blacklist User</a>
+          <a>Blacklist User</a>
         </Box>
 
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
           <RemoveRedEyeOutlined />
-          <a> Activate Users</a>
+          <a>Activate User</a>
         </Box>
       </CardContent>
     </CardWrapper>
