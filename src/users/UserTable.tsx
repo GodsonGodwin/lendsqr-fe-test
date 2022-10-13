@@ -160,7 +160,7 @@ export default function UserTable( { users} :IUserTableProps ) {
 
   return (
     <>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label="simple table" data-testid="user-table">
         <TableHead>
           <TableRow>
             <TableCell aria-describedby={id} onClick={handleClick} align="left">
@@ -249,6 +249,7 @@ export default function UserTable( { users} :IUserTableProps ) {
                   setSelectedUserId(row.id)
                 }}
                 align="left"
+                data-testid='more-cell'
                 sx={{ cursor: "pointer" }}
               >
                 <MoreVertIcon />
@@ -305,6 +306,8 @@ export default function UserTable( { users} :IUserTableProps ) {
           shape="rounded"
         />
       </PaginationBox>
+
+      
     </>
   );
 }
