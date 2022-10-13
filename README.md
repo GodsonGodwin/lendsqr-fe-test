@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+* LIVE URL:  https://benjamin-godwin-lendsqr-fe-test.netlify.app/
+
+#### SOME NOTES ON MY SUBMISSION
+
+* The login page does not have any strict authentication, the only expectation is to fill in the email and password. I wanted to keep things simple as it was not a requirement to have any authentication system implemented.
+
+* There are some actions, like the `Activate` and `Blacklist` that could not be done due to limitations in the provided mock API
+
+* The mock API does not have enough details to determine if a user has been blacklisted or not. To accomplish that, we would need to have some information regarding the user's loan repayment, like how long they have to fully repay the loan, and how much of the loan they have repaid - Assuming this is the criteria for blacklisting users.
+
+* I opted to use local storage over `IndexDB` to store the users details due to the ease of use and browser compatibility.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
