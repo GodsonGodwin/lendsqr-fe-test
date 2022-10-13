@@ -9,7 +9,7 @@ const DashboardLayout = () => {
  const [showSideBar, setShowSideBar] = useState(false);
 
  const handleClick = () => {
-    setShowSideBar((prev) => !prev);
+    setShowSideBar((prev)=> !prev);
   };
   
   return (
@@ -21,7 +21,7 @@ const DashboardLayout = () => {
           sx={{ maxWidth: "283px" }}
           position={{ xs: "absolute", lg: "relative" }}
           zIndex={{ xs: "100" }}
-          display={{ xs: `${showSideBar ? "none" : "block"}`, lg: "block" }}
+          display={{ xs: `${showSideBar ? "block" : "none"}`, lg: "block" }}
           boxShadow={"0px 5px 20px rgba(0, 0, 0, 0.04)"}
         >
           <SideBar />

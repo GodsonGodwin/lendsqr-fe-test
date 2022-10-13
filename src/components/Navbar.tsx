@@ -97,9 +97,11 @@ const NavBar = ({ onClickMobilebtn, showSideBar }: INavbarProps) => {
         onClick={()=>onClickMobilebtn()}
       >
         {showSideBar ? (
-          <DragHandleIcon sx={{ color: "#213F7D" }} />
-        ) : (
           <CloseIcon sx={{ color: "#213F7D" }} />
+
+        ) : (
+          <DragHandleIcon sx={{ color: "#213F7D" }} />
+
         )}
       </Box>
 
