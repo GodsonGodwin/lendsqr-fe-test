@@ -1,6 +1,7 @@
 import { RemoveRedEyeOutlined } from "@mui/icons-material";
 import { Box, Card, CardContent } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 const CardWrapper = styled(Card)`
   width: 180px;
@@ -29,11 +30,18 @@ const CardWrapper = styled(Card)`
   }
 `;
 
-const PopoverCard = () => {
+const PopoverCard = ({ userId }: { userId: string}) => {
+
+  const navigate = useNavigate();
+  
+  const navigateToDetailsPage = (userId: string) => {
+    navigate(`/dashboard/users/details/${userId}`);
+  };
   return (
     <CardWrapper>
       <CardContent>
         <Box
+         onClick={() => navigateToDetailsPage(userId)}
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
           <img src="/assets/redeye.svg" alt="icon" height="16px" width="16px" />

@@ -101,6 +101,7 @@ export default function UserTable( { users} :IUserTableProps ) {
   const [anchorEl, setAncholEl] = useState<HTMLElement | null>();
   const [cardPopover, setCardPopover] = useState<HTMLElement | null>();
   const [visibleUserData, setVisibleUserData] = useState<IUser[]>([]);
+  const [selectedUserId, setSelectedUserId] = useState<string>();
 
   useEffect(()=>{
     setVisibleUserData(users);
@@ -154,7 +155,7 @@ export default function UserTable( { users} :IUserTableProps ) {
   const navigate = useNavigate();
   
   const navigateToDetailsPage = (userId: string) => {
-    navigate(`/dashboard/user-details/${userId}`);
+    navigate(`/dashboard/users/details/${userId}`);
   };
 
   return (
@@ -243,7 +244,10 @@ export default function UserTable( { users} :IUserTableProps ) {
 
               <TableCell
                 aria-describedby={popCard}
-                onClick={(e) => setCardPopover(e.currentTarget)}
+                onClick={(e) => {
+                  setCardPopover(e.currentTarget)
+                  setSelectedUserId(row.id)
+                }}
                 align="left"
                 sx={{ cursor: "pointer" }}
               >
@@ -271,7 +275,7 @@ export default function UserTable( { users} :IUserTableProps ) {
             anchorPosition={{ top: 10, left: 10 }}
             anchorOrigin={{ vertical: "center", horizontal: "center" }}
           >
-            <PopoverCard />
+            <PopoverCard userId={selectedUserId!} />
           </Popover>
         </TableBody>
       </Table>

@@ -26,102 +26,117 @@ import UserAcct from "../Icons/user-cog.svg";
 import UserCheck from "../Icons/user-check.svg";
 import Hand from "../Icons/hand.svg";
 import UserTimes from "../Icons/user-times.svg";
+import { NavLink } from "react-router-dom";
 
 const Custumers = [
   {
     icon: UserFriends,
     iconName: "Users",
+    path: "/dashboard/users",
   },
 
   {
     icon: Users,
     iconName: "Gaurantors",
+    path: "/404",
   },
 
   {
     icon: Sack,
     iconName: "Loans",
+    path: "/404",
   },
 
   {
     icon: Handshake,
     iconName: "Decision Models",
+    path: "/404",
   },
 
   {
     icon: Saving,
     iconName: "Savings",
+    path: "/404",
   },
 
   {
     icon: Hand,
     iconName: "Loan Request",
+    path: "/404",
   },
 
   {
     icon: UserCheck,
     iconName: "Whitelist",
+    path: "/404",
   },
 
   {
     icon: UserTimes,
     iconName: "Karma",
+    path: "/404",
   },
 ];
 
 const Businesses = [
   {
-    id: 1,
     icon: Brief,
     iconName: "Organisation",
+    path: "/404",
   },
 
   {
-    id: 2,
-
     icon: Sack,
     iconName: "Loan Product",
+    path: "/404",
   },
 
   {
-    id: 3,
     icon: Product,
     iconName: "Savings Product",
+    path: "/404",
   },
 
   {
     icon: Handshake,
     iconName: "Decision Models",
+    path: "/404",
   },
 
   {
     icon: Coins,
     iconName: "Fees and Charges",
+    path: "/404",
   },
 
   {
     icon: Transaction,
     iconName: "Transaction",
+    path: "/404",
   },
 
   {
     icon: Galaxy,
     iconName: "Services",
+    path: "/404",
   },
 
   {
     icon: UserAcct,
     iconName: "Service Account",
+    path: "/404",
   },
 
   {
     icon: Scroll,
     iconName: "Settlement",
+    path: "/404",
   },
 
   {
     icon: Chart,
     iconName: "Reports",
+    path: "/404",
   },
 ];
 
@@ -129,26 +144,31 @@ const Settings = [
   {
     icon: Slider,
     iconName: "Preferences",
+    path: "/404",
   },
 
   {
     icon: Product,
     iconName: "Loan Product",
+    path: "/404",
   },
 
   {
     icon: Badge,
     iconName: "Fees and Pricing",
+    path: "/404",
   },
 
   {
     icon: Clipboard,
     iconName: "Audit Logs",
+    path: "/404",
   },
 
   {
     icon: Tire,
     iconName: "System Message",
+    path: "/404",
   },
 ];
 
@@ -184,7 +204,6 @@ const Menu = styled("ul")`
 
   .active {
     height: 40px;
-
     background-color: #39cdcd1f;
     border-left: 3px solid #39cdcc;
   }
@@ -218,9 +237,15 @@ const SideBar = () => {
           <BusinessCenterIcon /> Switch Organization
           <ArrowDropDownIcon />
         </MenuList>
-        <MenuList sx={{ paddingTop: "50px", paddingLeft: "30px" }}>
-          <HomeIcon /> Dashboard
-        </MenuList>
+        <Menu sx={{ paddingTop: "50px" }}>
+          <NavLink
+            to="/dashboard"
+            end
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            <HomeIcon /> Dashboard
+          </NavLink>
+        </Menu>
 
         <MenuItems>
           <MenuList sx={{ paddingLeft: "30px", paddingBottom: "10px" }}>
@@ -229,20 +254,14 @@ const SideBar = () => {
           <Menu>
             {Custumers.map((item, index) => {
               return (
-                <a
+                <NavLink
+                  to={item.path}
                   key={item.iconName}
-                  className={activeClass === item.iconName ? "active" : ""}
-                  onClick={() => setActiveClass(item.iconName)}
-                  href="#"
+                  className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                  <img
-                    src={item.icon as string}
-                    alt="icon"
-                    height="16px"
-                    width="16px"
-                  />
+                  <img src={item.icon} alt="icon" height="16px" width="16px" />{" "}
                   {item.iconName}
-                </a>
+                </NavLink>
               );
             })}
           </Menu>
@@ -255,20 +274,14 @@ const SideBar = () => {
           <Menu>
             {Businesses.map((item, index) => {
               return (
-                <a
+                <NavLink
+                  to={item.path}
                   key={item.iconName}
-                  className={activeClass === item.iconName ? "active" : ""}
-                  onClick={() => setActiveClass(item.iconName)}
-                  href="#"
+                  className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                  <img
-                    src={item.icon as string}
-                    alt="icon"
-                    height="16px"
-                    width="16px"
-                  />
+                  <img src={item.icon} alt="icon" height="16px" width="16px" />{" "}
                   {item.iconName}
-                </a>
+                </NavLink>
               );
             })}
           </Menu>
@@ -281,20 +294,14 @@ const SideBar = () => {
           <Menu>
             {Settings.map((item, index) => {
               return (
-                <a
+                <NavLink
+                  to={item.path}
                   key={item.iconName}
-                  className={activeClass === item.iconName ? "active" : ""}
-                  onClick={() => setActiveClass(item.iconName)}
-                  href="#"
+                  className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                  <img
-                    src={item.icon as string}
-                    alt="icon"
-                    height="16px"
-                    width="16px"
-                  />
+                  <img src={item.icon} alt="icon" height="16px" width="16px" />{" "}
                   {item.iconName}
-                </a>
+                </NavLink>
               );
             })}
           </Menu>
@@ -303,7 +310,9 @@ const SideBar = () => {
         <MenuList
           sx={{ paddingLeft: "30px", paddingBottom: "20px", cursor: "pointer" }}
         >
-          <LogoutIcon /> Logout
+          <NavLink style={{ display: "flex", alignItems: "center" }} to="/">
+            <LogoutIcon /> Logout
+          </NavLink>
         </MenuList>
       </SideBarContent>
     </SideBarWrapper>

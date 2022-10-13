@@ -35,6 +35,7 @@ const CardWrap = styled(Card)`
     font-weight: 500;
     font-size: 16px;
     color: #545f7d;
+    word-wrap: break-word;
   }
 `;
 
@@ -57,6 +58,9 @@ const PersonalDetails = ({ userInfo }: { userInfo: IUser }) => {
             gap={{ xs: "15px", lg: "0" }}
             display="flex"
             justifyContent="space-between"
+            
+
+            
           >
             <Grid item xs={12} lg={2}>
               <h6>FULL NAME</h6>
