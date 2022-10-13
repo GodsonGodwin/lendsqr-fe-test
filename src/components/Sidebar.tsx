@@ -5,149 +5,173 @@ import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import HomeIcon from "@mui/icons-material/Home";
 import LogoutIcon from "@mui/icons-material/Logout";
-import {
-    Analytics,
-    BusinessCenter,
-    CleanHands,
-    Euro,
-    Groups,
-    Handshake,
-    HouseSiding,
-    HowToReg,
-    Layers,
-    LibraryBooks,
-    ManageAccounts,
-    PeopleAlt,
-    RateReview,
-    Receipt,
-    ReceiptLong,
-    Savings,
-    SupportAgent,
-    Tune,
-  } from "@mui/icons-material";
-  
-  
-  export const Custumers = [
-    {
-      icon: PeopleAlt,
-      iconName: "Users",
-    },
-  
-    {
-      icon: Groups,
-      iconName: "Gaurantors",
-    },
-  
-    {
-      icon: Euro,
-      iconName: "Loans",
-    },
-  
-    {
-      icon: Handshake,
-      iconName: "Decision Models",
-    },
-  
-    {
-      icon: Savings,
-      iconName: "Savings",
-    },
-  
-    {
-      icon: CleanHands,
-      iconName: "Loan Request",
-    },
-  
-    {
-      icon: HowToReg,
-      iconName: "Whitelist",
-    },
-  ];
-  
-  export const Businesses = [
-    {
-      id: 1,
-      icon: BusinessCenter,
-      iconName: "Organisation",
-    },
-  
-    {
-      id: 2,
-  
-      icon: CleanHands,
-      iconName: "Loan Product",
-    },
-  
-    {
-      id: 3,
-      icon: HouseSiding,
-      iconName: "Savings Product",
-    },
-  
-    {
-      icon: Handshake,
-      iconName: "Decision Models",
-    },
-  
-    {
-      icon: Layers,
-      iconName: "Fees and Charges",
-    },
-  
-    {
-      icon: Receipt,
-      iconName: "Transaction",
-    },
-  
-    {
-      icon: SupportAgent,
-      iconName: "Services",
-    },
-  
-    {
-      icon: ManageAccounts,
-      iconName: "Service Account",
-    },
-  
-    {
-      icon: ReceiptLong,
-      iconName: "Settlement",
-    },
-  
-    {
-      icon: Analytics,
-      iconName: "Reports",
-    },
-  ];
-  
-  export const Settings = [
-    {
-      icon: BusinessCenter,
-      iconName: "Preferences",
-    },
-  
-    {
-      icon: Tune,
-      iconName: "Loan Product",
-    },
-  
-    {
-      icon: HouseSiding,
-      iconName: "Fees and Pricing",
-    },
-  
-    {
-      icon: LibraryBooks,
-      iconName: "Audit Logs",
-    },
-  
-    {
-      icon: RateReview,
-      iconName: "System Message",
-    },
-  ];
 
-  
+import Badge from "../Icons/badge.svg";
+import Chart from "../Icons/chart.svg";
+import Coins from "../Icons/coins.svg";
+import Handshake from "../Icons/handshake.svg";
+import Galaxy from "../Icons/galaxy.svg";
+import Product from "../Icons/product.svg";
+import Sack from "../Icons/sack.svg";
+import Saving from "../Icons/saving.svg";
+import Scroll from "../Icons/scroll.svg";
+import Tire from "../Icons/tire.svg";
+import Transaction from "../Icons/trans.svg";
+import UserFriends from "../Icons/user-friends.svg";
+import Users from "../Icons/users.svg";
+import Brief from "../Icons/brief.svg";
+import Clipboard from "../Icons/clipboard.svg";
+import Slider from "../Icons/sliders.svg";
+import UserAcct from "../Icons/user-cog.svg";
+import UserCheck from "../Icons/user-check.svg";
+import Hand from "../Icons/hand.svg";
+import UserTimes from "../Icons/user-times.svg";
+import { NavLink } from "react-router-dom";
+
+const Custumers = [
+  {
+    icon: UserFriends,
+    iconName: "Users",
+    path: "/dashboard/users",
+  },
+
+  {
+    icon: Users,
+    iconName: "Gaurantors",
+    path: "/404",
+  },
+
+  {
+    icon: Sack,
+    iconName: "Loans",
+    path: "/404",
+  },
+
+  {
+    icon: Handshake,
+    iconName: "Decision Models",
+    path: "/404",
+  },
+
+  {
+    icon: Saving,
+    iconName: "Savings",
+    path: "/404",
+  },
+
+  {
+    icon: Hand,
+    iconName: "Loan Request",
+    path: "/404",
+  },
+
+  {
+    icon: UserCheck,
+    iconName: "Whitelist",
+    path: "/404",
+  },
+
+  {
+    icon: UserTimes,
+    iconName: "Karma",
+    path: "/404",
+  },
+];
+
+const Businesses = [
+  {
+    icon: Brief,
+    iconName: "Organisation",
+    path: "/404",
+  },
+
+  {
+    icon: Sack,
+    iconName: "Loan Product",
+    path: "/404",
+  },
+
+  {
+    icon: Product,
+    iconName: "Savings Product",
+    path: "/404",
+  },
+
+  {
+    icon: Handshake,
+    iconName: "Decision Models",
+    path: "/404",
+  },
+
+  {
+    icon: Coins,
+    iconName: "Fees and Charges",
+    path: "/404",
+  },
+
+  {
+    icon: Transaction,
+    iconName: "Transaction",
+    path: "/404",
+  },
+
+  {
+    icon: Galaxy,
+    iconName: "Services",
+    path: "/404",
+  },
+
+  {
+    icon: UserAcct,
+    iconName: "Service Account",
+    path: "/404",
+  },
+
+  {
+    icon: Scroll,
+    iconName: "Settlement",
+    path: "/404",
+  },
+
+  {
+    icon: Chart,
+    iconName: "Reports",
+    path: "/404",
+  },
+];
+
+const Settings = [
+  {
+    icon: Slider,
+    iconName: "Preferences",
+    path: "/404",
+  },
+
+  {
+    icon: Product,
+    iconName: "Loan Product",
+    path: "/404",
+  },
+
+  {
+    icon: Badge,
+    iconName: "Fees and Pricing",
+    path: "/404",
+  },
+
+  {
+    icon: Clipboard,
+    iconName: "Audit Logs",
+    path: "/404",
+  },
+
+  {
+    icon: Tire,
+    iconName: "System Message",
+    path: "/404",
+  },
+];
+
 const SideBarWrapper = styled(Box)`
   width: 283px;
   min-height: 100vh;
@@ -173,9 +197,13 @@ const Menu = styled("ul")`
     color: #213f7d;
   }
 
+  img {
+    width: auto;
+    margin-right: 10px;
+  }
+
   .active {
     height: 40px;
-
     background-color: #39cdcd1f;
     border-left: 3px solid #39cdcc;
   }
@@ -209,9 +237,15 @@ const SideBar = () => {
           <BusinessCenterIcon /> Switch Organization
           <ArrowDropDownIcon />
         </MenuList>
-        <MenuList sx={{ paddingTop: "50px", paddingLeft: "30px" }}>
-          <HomeIcon /> Dashboard
-        </MenuList>
+        <Menu sx={{ paddingTop: "50px" }}>
+          <NavLink
+            to="/dashboard"
+            end
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            <HomeIcon /> Dashboard
+          </NavLink>
+        </Menu>
 
         <MenuItems>
           <MenuList sx={{ paddingLeft: "30px", paddingBottom: "10px" }}>
@@ -220,14 +254,14 @@ const SideBar = () => {
           <Menu>
             {Custumers.map((item, index) => {
               return (
-                <a
+                <NavLink
+                  to={item.path}
                   key={item.iconName}
-                  className={activeClass === item.iconName ? "active" : ""}
-                  onClick={() => setActiveClass(item.iconName)}
-                  href="#"
+                  className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                  <item.icon /> {item.iconName}
-                </a>
+                  <img src={item.icon} alt="icon" height="16px" width="16px" />{" "}
+                  {item.iconName}
+                </NavLink>
               );
             })}
           </Menu>
@@ -240,14 +274,14 @@ const SideBar = () => {
           <Menu>
             {Businesses.map((item, index) => {
               return (
-                <a
+                <NavLink
+                  to={item.path}
                   key={item.iconName}
-                  className={activeClass === item.iconName ? "active" : ""}
-                  onClick={() => setActiveClass(item.iconName)}
-                  href="#"
+                  className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                  <item.icon fontSize="small" /> {item.iconName}
-                </a>
+                  <img src={item.icon} alt="icon" height="16px" width="16px" />{" "}
+                  {item.iconName}
+                </NavLink>
               );
             })}
           </Menu>
@@ -260,14 +294,14 @@ const SideBar = () => {
           <Menu>
             {Settings.map((item, index) => {
               return (
-                <a
+                <NavLink
+                  to={item.path}
                   key={item.iconName}
-                  className={activeClass === item.iconName ? "active" : ""}
-                  onClick={() => setActiveClass(item.iconName)}
-                  href="#"
+                  className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                  <item.icon fontSize="small" /> {item.iconName}
-                </a>
+                  <img src={item.icon} alt="icon" height="16px" width="16px" />{" "}
+                  {item.iconName}
+                </NavLink>
               );
             })}
           </Menu>
@@ -276,7 +310,9 @@ const SideBar = () => {
         <MenuList
           sx={{ paddingLeft: "30px", paddingBottom: "20px", cursor: "pointer" }}
         >
-          <LogoutIcon /> Logout
+          <NavLink style={{ display: "flex", alignItems: "center" }} to="/">
+            <LogoutIcon /> Logout
+          </NavLink>
         </MenuList>
       </SideBarContent>
     </SideBarWrapper>

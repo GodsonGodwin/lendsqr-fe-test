@@ -14,7 +14,7 @@ const NavbarWrapper = styled(Box)`
   justify-content: space-between;
   background: #ffffff;
   box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
-  z-index: 1;
+  z-index: 1000;
   position: sticky;
   top: 0;
 `;
@@ -97,9 +97,11 @@ const NavBar = ({ onClickMobilebtn, showSideBar }: INavbarProps) => {
         onClick={()=>onClickMobilebtn()}
       >
         {showSideBar ? (
-          <DragHandleIcon sx={{ color: "#213F7D" }} />
-        ) : (
           <CloseIcon sx={{ color: "#213F7D" }} />
+
+        ) : (
+          <DragHandleIcon sx={{ color: "#213F7D" }} />
+
         )}
       </Box>
 

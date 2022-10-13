@@ -1,6 +1,7 @@
 import { RemoveRedEyeOutlined } from "@mui/icons-material";
 import { Box, Card, CardContent } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 const CardWrapper = styled(Card)`
   width: 180px;
@@ -9,6 +10,11 @@ const CardWrapper = styled(Card)`
   border: 1px solid rgba(84, 95, 125, 0.04);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
+
+  img {
+    width: auto;
+    margin-right: 10px;
+  }
 
   a {
     font-family: "Work Sans";
@@ -24,29 +30,45 @@ const CardWrapper = styled(Card)`
   }
 `;
 
-const PopoverCard = () => {
+const PopoverCard = ({ userId }: { userId: string }) => {
+  const navigate = useNavigate();
+
+  const navigateToDetailsPage = (userId: string) => {
+    navigate(`/dashboard/users/details/${userId}`);
+  };
   return (
-    <CardWrapper data-testid="popover-card">
+    <CardWrapper>
       <CardContent>
         <Box
+          onClick={() => navigateToDetailsPage(userId)}
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
-          <RemoveRedEyeOutlined />
-          <a>View Details</a>
+          <img src="/assets/redeye.svg" alt="icon" height="16px" width="16px" />
+          <a> View Details</a>
         </Box>
 
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
-          <RemoveRedEyeOutlined />
-          <a>Blacklist User</a>
+          <img
+            src="/assets/user-times.svg"
+            alt="icon"
+            height="16px"
+            width="16px"
+          />
+          <a> Blacklist User</a>
         </Box>
 
         <Box
           sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
         >
-          <RemoveRedEyeOutlined />
-          <a>Activate User</a>
+          <img
+            src="/assets/user-check.svg"
+            alt="icon"
+            height="16px"
+            width="16px"
+          />
+          <a> Activate Users</a>
         </Box>
       </CardContent>
     </CardWrapper>

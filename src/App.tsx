@@ -3,15 +3,19 @@ import Signin from 'auth/SignInView';
 import DashboardLayout from 'dashboard/DashboardLayout';
 import Dashboard from 'dashboard/DashboardView';
 import UserDetails from 'users/details/UserDetailsView';
+import NotFound from 'components/NotFound';
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Signin />} />
+        <Route path="*" element={<NotFound />} />
+       
         <Route path="dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="user-details/:userId" element={<UserDetails />} />
+          <Route path="users" index element={<Dashboard />} />
+          <Route path="users/details/:userId" element={<UserDetails />} />
         </Route>
       </Routes>
     </div>
