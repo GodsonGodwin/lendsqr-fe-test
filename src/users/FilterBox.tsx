@@ -78,10 +78,9 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
         <Box className="input-box">
           <label>Organization</label>
           <select onChange={onInputChanged} name="orgName" data-testid="filter-input-organization">
-            <option>Organization</option>
-
+            <option value="">Organization</option>
             {data.map((item) => {
-              return <option>{item.orgName}</option>;
+              return <option key={item.orgName}>{item.orgName}</option>;
             })}
           </select>
         </Box>
@@ -89,7 +88,7 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
         <Box className="input-box">
           <label>Username</label>
           <input
-          data-testid="filter-input-userName"
+            data-testid="filter-input-userName"
             name="userName"
             onChange={onInputChanged}
             placeholder="Username"
@@ -121,9 +120,9 @@ const FilterBox = ({ data, onFiltered, onClearFilter }: IFilterBox) => {
           />
         </Box>
 
-        <Box className="input-box" data-testid="filter-input-status">
+        <Box className="input-box">
           <label>Status</label>
-          <select name="status" onChange={onInputChanged}>
+          <select name="status" onChange={onInputChanged} data-testid="filter-input-status">
             <option value="">-</option>
             <option>Active</option>
             <option>Inactive</option>

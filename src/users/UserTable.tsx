@@ -244,6 +244,7 @@ export default function UserTable( { users} :IUserTableProps ) {
                 aria-describedby={popCard}
                 onClick={(e) => setCardPopover(e.currentTarget)}
                 align="left"
+                data-testid='more-cell'
                 sx={{ cursor: "pointer" }}
               >
                 <MoreVertIcon />
